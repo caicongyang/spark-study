@@ -1,0 +1,17 @@
+~/
+/target
+/bin
+/.settings
+/.classpath
+/.project
+/*/target
+/*/.settings
+/*/.bpmn
+/*/.classpath
+/*/.project
+/*/logs
+/*/proxool.properties
+/.idea/
+/*/bin
+*.iml
+/logs
