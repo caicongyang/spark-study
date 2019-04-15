@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 解析邮件头 spark 任务
+ * 1.注册一个spark udf
+ * 2.解析原有的邮件头数据到新表
  *
  * @author caicongyang
  * @version id: MailHeaderParserApp, v 0.1 18/3/6 下午5:37 caicongyang1 Exp $$

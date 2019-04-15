@@ -10,6 +10,9 @@ import org.apache.spark.api.java.function.Function;
 import java.util.Arrays;
 import java.util.Iterator;
 
+/**
+ * flagMap 与 map 的区别
+ */
 public class FlatMapApp {
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("caicongyang-FlatMapApp").setMaster("local[1]");
