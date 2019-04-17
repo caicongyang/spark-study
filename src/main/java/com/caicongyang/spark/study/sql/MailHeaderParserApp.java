@@ -52,7 +52,7 @@ public class MailHeaderParserApp {
             //创建表
             String createTable = "create table if not exists vdm_risk.mail_parser_info(mail_id STRING,mail_header STRING) PARTITIONED BY (dt STRING)";
             spark.sql(createTable);
-            String querySql = "insert overwrite table vdm_risk.mail_parser_info partition(dt) select mi.mail_id, mailParser(mi.mail_header) as mail_header, substr(mi.gmt51_create_datetime,1,10) as dt from risk_access_views.o_pgsql_riskbill_public_v_mail_info  as mi where substr(mi.gmt51_create_datetime,1,10) <'${date}'";
+            String querySql = "insert overwrite table vdm_risk.mail_parser_info partition(dt) select mi.mail_id as mail_id, mailParser(mi.mail_header) as mail_header, substr(mi.gmt51_create_datetime,1,10) as dt from access_views.xxx_v_mail_info  as mi where substr(mi.gmt51_create_datetime,1,10) <'${date}'";
 
             querySql = querySql.replaceAll("\\$\\{date}", applyDay);
             LOGGER.info(querySql);

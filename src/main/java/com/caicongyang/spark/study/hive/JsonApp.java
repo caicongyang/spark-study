@@ -2,14 +2,8 @@ package com.caicongyang.spark.study.hive;
 
 import com.caicongyang.spark.study.User;
 import org.apache.spark.sql.*;
-import org.apache.spark.sql.types.DataTypes;
-import org.apache.spark.sql.types.StructField;
-import org.apache.spark.sql.types.StructType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * json 转成 临时hive 表
@@ -37,8 +31,6 @@ public class JsonApp {
         Dataset<Row> dataset = sqlContext.sql("select user.name ,user.text FROM T_User as user");
 
 
-
-
         // 生成schema
 //        List<StructField> fields = new ArrayList<>();
 //        fields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
@@ -48,12 +40,10 @@ public class JsonApp {
         List<User> userList = dataset.as(Encoders.bean(User.class))
                 .collectAsList();
 
-        System.out.println("partitions size:"+dataset.rdd().getPartitions().length);
+        System.out.println("partitions size:" + dataset.rdd().getPartitions().length);
 
         System.out.println(userList.get(0).toString());
         System.out.println(userList.get(1).toString());
-
-
 
 
     }
