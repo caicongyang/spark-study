@@ -15,3 +15,5 @@
 /*/bin
 *.iml
 /logs
+/metastore_db
+*.log
