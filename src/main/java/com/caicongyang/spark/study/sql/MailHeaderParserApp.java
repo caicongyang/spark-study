@@ -31,8 +31,8 @@ public class MailHeaderParserApp {
          *  SparkSession内部封装了sparkContext，所以计算实际上是由sparkContext完成的。
          */
         SparkSession spark = SparkSession.builder().appName("MailHeaderParserApp").master("yarn").enableHiveSupport()
-                .config("hive.exec.dynamic.partition", "true")
-                .config("hive.exec.dynamic.partition.mode", "nonstrict").getOrCreate();
+                .config("hive.exec.dynamic.partition", "true") // 开启动态分区
+                .config("hive.exec.dynamic.partition.mode", "nonstrict").getOrCreate();  //不强制使用分区键
         SQLContext sqlContext = spark.sqlContext();
 
         UDFRegistration udfRegistration = sqlContext.udf();
